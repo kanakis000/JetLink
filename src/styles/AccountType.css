@@ -1,0 +1,247 @@
+/*  Page Setup */
+.account-type-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-image: url('/your-background.jpg'); /* Optional */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.blur-background {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+/*  Container */
+.auth-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  max-width: 850px;
+  width: 100%;
+  height: 550px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+}
+
+/*  Direction Handling */
+.auth-container.user-active {
+  flex-direction: row;
+}
+
+.auth-container.manager-active {
+  flex-direction: row-reverse;
+}
+
+/*  Side Panel */
+.side-panel {
+  flex-shrink: 0;
+  width: 220px;
+  padding: 2rem 1rem;
+  background-color: #72d615; /* Default */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.auth-container.user-active .side-panel {
+  border-radius: 20px 0 0 20px;
+}
+
+.auth-container.manager-active .side-panel {
+  border-radius: 0 20px 20px 0;
+}
+
+/*  Different Manager Colors */
+.auth-container.hotel_manager-active .side-panel {
+  background-color: #72d615; /* Green */
+}
+
+.auth-container.restaurant_manager-active .side-panel {
+  background-color: #72d615; /* Green */
+}
+
+.side-panel h3 {
+  margin-bottom: 1.5rem;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
+
+/*  Switch Role Buttons inside Panel */
+.switch-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.switch-buttons .role-btn {
+  background-color: white;
+  color: #3faa5f;
+  font-weight: bold;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+  width: 100%;
+}
+
+.switch-buttons .role-btn:hover {
+  background-color: #3faa5f;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/*  Auth Main Area */
+.auth-content {
+  flex: 1;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.auth-content h2 {
+  margin-bottom: 2rem;
+  font-size: 24px;
+  text-align: center;
+}
+
+/*  Login / Register Action Buttons */
+.auth-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.auth-actions button {
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  font-weight: bold;
+  border: 2px solid;
+  background: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/*  Dynamic color based on role */
+.auth-btn.user {
+  border-color: #72d615;
+  color: #72d615;
+}
+
+.auth-btn.user:hover {
+  background-color: #72d615;
+  color: white;
+}
+
+.auth-btn.hotel_manager {
+  border-color: #72d615;
+  color: #72d615;
+}
+
+.auth-btn.hotel_manager:hover {
+  background-color: #72d615;
+  color: white;
+}
+
+.auth-btn.restaurant_manager {
+  border-color: #72d615;
+  color: #72d615;
+}
+
+.auth-btn.restaurant_manager:hover {
+  background-color: #72d615;
+  color: white;
+}
+
+/*  Small animation when showing forms */
+.form-wrapper {
+  transition: all 0.4s ease;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.form-fade-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.form-fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s ease;
+}
+
+/*  Back Button in Forms */
+.back-btn {
+  background: none;
+  border: none;
+  color: #3faa5f;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  color: #72d615;
+  transform: translateX(-4px);
+}
+
+/*  Responsive for Mobile */
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column !important;
+    height: auto;
+    max-height: none;
+    width: 90%;
+    margin: 20px 0;
+  }
+
+  .side-panel {
+    width: 100%;
+    border-radius: 20px 20px 0 0 !important;
+    padding: 1.5rem 1rem;
+  }
+
+  .auth-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .auth-content h2 {
+    font-size: 20px;
+  }
+
+  .auth-actions button {
+    width: 100%;
+  }
+
+  .switch-buttons .role-btn {
+    font-size: 14px;
+  }
+}

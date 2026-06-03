@@ -1,0 +1,182 @@
+/* ✅ Container */
+.restaurant-detail-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ✅ Back Button */
+.back-button {
+  background: none;
+  border: none;
+  color: #3faa5f;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: color 0.2s;
+}
+.back-button:hover {
+  color: #2d7c4c;
+}
+
+/* ✅ Restaurant Banner Image */
+.restaurant-banner {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.restaurant-banner img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ✅ Restaurant Info */
+.restaurant-name {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #222;
+}
+.restaurant-region {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* ✅ Type Chips */
+.restaurant-types {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.type-chip {
+  background: #e9ffe3;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+/* ✅ Description */
+.restaurant-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+  margin-top: 10px;
+  background: #f9f9f9;
+  padding: 18px;
+  border-radius: 10px;
+}
+
+/* ✅ Menu Section */
+.restaurant-menu {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+.restaurant-menu h3 {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* ✅ Menu Grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ✅ Menu Item Card */
+.menu-card {
+  background: #fff;
+  border: 5px solid #e0e0e0; /* ✅ light gray border */
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 370px;
+  max-width: 280px;
+  margin: 0 auto 24px;
+  margin-bottom: 24px;
+}
+.menu-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  border-color: #ccc; /* ✅ slightly darker border on hover */
+}
+.menu-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+/* ✅ Text Styling */
+.menu-card h4 {
+  font-size: 17px;
+  margin: 10px 0 6px;
+  font-weight: bold;
+  color: #333;
+}
+
+.menu-card .description {
+  font-size: 14px;
+  color: #555;
+  margin: 2px 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4em;
+  max-height: 2.8em;
+}
+
+.menu-card p {
+  font-size: 14px;
+  color: #555;
+  margin: 2px 10px;
+}
+.menu-card p:last-child {
+  font-weight: bold;
+  color: #72d615;
+}
+
+/* ✅ Responsive Adjustments */
+@media (max-width: 768px) {
+  .restaurant-banner img {
+    height: 260px;
+  }
+
+  .menu-card {
+    height: auto;
+  }
+
+  .menu-card img {
+    height: 140px;
+  }
+
+  .menu-card .description {
+    white-space: normal;
+    text-overflow: unset;
+    -webkit-line-clamp: unset;
+    max-height: none;
+  }
+}

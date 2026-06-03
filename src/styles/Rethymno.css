@@ -1,0 +1,33 @@
+.destination-container {
+    text-align: center;
+    padding: 50px;
+    background-color: #F5E1DA; /* Warm pastel color for Rethymno */
+    min-height: 100vh;
+  }
+  
+  .destination-container h1 {
+    font-size: 36px;
+    color: #A0522D; /* A warm terracotta shade */
+  }
+  
+  .destination-container p {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .back-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #D2691E;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #8B4513;
+  }
+  

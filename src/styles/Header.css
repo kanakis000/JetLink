@@ -1,0 +1,23 @@
+.logout-btn {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+  }
+  
+  .header-minimal {
+    width: 100%;
+    padding: 15px;
+    background-color: #f2e8d5;
+    text-align: center;
+  }
+  
+  .header-minimal .title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #3b3b3b;
+  }
+  

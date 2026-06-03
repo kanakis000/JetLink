@@ -1,0 +1,339 @@
+/* 🔹 GENERAL STYLES */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🔹 HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background-color: #f2e8d5; /* warm tan */
+  width: 100%;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+/* NAVIGATION */
+.left-nav, .right-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+/* HEADER TITLE */
+.title {
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+  font-size: 24px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* 🔹 NAVIGATION LINKS */
+.link {
+  text-decoration: none;
+  color: #5a4c3c;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 8px 16px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.link:hover {
+  color: #b08968;
+  text-decoration: underline;
+  border-color: #b08968;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 IMAGE SECTION */
+.top-image-container {
+  background-color: #fdf6ec;
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.top-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+
+/* "JetLink" TEXT */
+.jetlink-text {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5eadcc;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* 🔹 SEARCH BAR */
+.search-bar-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 10px;
+  border-radius: 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  width: 60%;
+  max-width: 400px;
+}
+
+.search-bar {
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 30px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  color: #333;
+}
+
+.search-button {
+  background: #c49b66;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 16px;
+  color: white;
+  transition: 0.3s;
+}
+.search-button:hover {
+  background: #b88650;
+}
+
+/* 🔹 DROPDOWN MENU */
+.dropdown-container {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.dropdown-button {
+  background: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.85);
+  border: none;
+  padding: 8px 12px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.dropdown-button:hover {
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 1);
+}
+
+.dropdown-menu {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fef9f1;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 30px;
+  width: 60%;
+  max-width: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+.dropdown-menu a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  padding: 15px;
+  display: block;
+  transition: background 0.3s ease;
+  border-radius: 8px;
+}
+.dropdown-menu a:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* 🔹 CLICKABLE CARD */
+.card {
+  background: #ffffff;
+  border: 1px solid #d9cbb3;
+  border-radius: 20px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  margin: 30px auto;
+  text-align: left;
+  max-width: 900px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.card:hover {
+  transform: scale(1.05);
+  background-color: #fdf6ec;
+  box-shadow: 0 4px 20px rgba(196, 155, 102, 0.3);
+}
+.card:active {
+  transform: scale(0.98);
+}
+
+/* 🔹 BODY CONTAINER */
+.body {
+  background-color: #fdf6ec;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 60px 20px;
+}
+
+/* 🔹 CARD SECTION */
+.card-section {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* 🔹 HOTEL SECTION */
+.hotel-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* 🔹 RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .card {
+    max-width: 90%;
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .card-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .card-content {
+    text-align: center;
+  }
+
+  .dropdown-container {
+    right: 10px;
+  }
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 5%;
+  background-color: #fef7e0;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3b3b3b;
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Default nav links layout (desktop) */
+.nav-links {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Style individual links */
+.link {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #fffaf3;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .link {
+    padding: 10px 0;
+  }
+}
+
+

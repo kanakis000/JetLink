@@ -1,0 +1,36 @@
+.heraklion-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.hotel-list {
+  list-style: none;
+  padding: 0;
+}
+
+.hotel-card {
+  background: #f4f4f4;
+  padding: 15px;
+  margin: 10px auto;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  border-radius: 4px;
+}
+
+.pagination button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}

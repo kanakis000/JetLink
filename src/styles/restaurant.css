@@ -1,0 +1,260 @@
+/* Container */
+.restaurant-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .restaurant-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  .add-button-wrapper {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .role-btn {
+    background: #72d615;
+    color: black;
+    font-weight: bold;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .role-btn:hover {
+    background: #3faa5f;
+    color: white;
+  }
+  
+  /* Card List */
+  .card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+  }
+  
+  .card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* ✅ Keeps all elements centered */
+    gap: 12px;             /* ✅ Adds vertical spacing */
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+  
+  .card-name,
+.card-type,
+.truncate-description {
+  width: 100%;
+  max-width: 100%;
+  word-break: break-word;
+  text-align: center;
+}
+
+  
+  .card * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+
+  .card:hover {
+    transform: scale(1.03);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+  
+  .card-name {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .card-type {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000000;
+    text-transform: uppercase; 
+  }
+  
+  
+  .truncate-description {
+    max-height: 60px;
+    white-space: normal;
+    overflow-wrap: break-word;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #444; 
+    font-weight: 400;
+    text-align: left;
+    font-style: italic;
+  }
+  
+  /* Modal Overlay & Box */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+  }
+  
+  .modal {
+    background: white;
+    padding: 40px 30px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .modal-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+    width: 100%;
+  }
+  
+  .modal-content {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Form */
+  .restaurant-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .form-group {
+    width: 100%;
+  }
+  
+  .restaurant-form input,
+  .restaurant-form select,
+  .restaurant-form textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .restaurant-form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .types-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .type-btn {
+    background: #eee;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .type-btn:hover {
+    background: #d4ffd4;
+  }
+  
+  .type-btn.selected {
+    background: #72d615;
+    color: white;
+  }
+  
+  /* Buttons */
+  .form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  
+  .save-btn {
+    background: #72d615;
+    color: black;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .save-btn:hover {
+    background: #3faa5f;
+    color: white;
+  }
+  
+  .cancel-btn {
+    background: none;
+    color: #e74c3c;
+    border: 2px solid #e74c3c;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .cancel-btn:hover {
+    background: #fbeaea;
+  }
+  

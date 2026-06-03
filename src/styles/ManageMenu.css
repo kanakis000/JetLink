@@ -1,0 +1,195 @@
+/* ✅ Manage Menu Container */
+.manage-menu-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ✅ Title and Header */
+.manage-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.manage-menu-title {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+/* ✅ Add Button */
+.add-menu-btn {
+  background-color: #72d615;
+  color: black;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-menu-btn:hover {
+  background-color: #3faa5f;
+  color: white;
+}
+
+/* ✅ Form Styles for Add New Menu Item */
+.menu-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 30px auto;
+}
+
+.menu-form input,
+.menu-form textarea,
+.menu-form select {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.menu-form button {
+  background: #72d615;
+  color: black;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.menu-form button:hover {
+  background: #3faa5f;
+  color: white;
+}
+
+/* ✅ Menu Items Grid */
+.menu-items-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  margin-top: 30px;
+}
+
+/* ✅ Menu Item Card */
+.menu-item-card {
+  background: white;
+  width: 260px;
+  height: 360px;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.menu-item-card:hover {
+  transform: scale(1.02);
+}
+
+/* ✅ Menu Image */
+.menu-item-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* ✅ Name */
+.menu-item-card h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 8px 0 4px;
+  text-align: center;
+}
+
+/* ✅ Description Truncated to 2 Lines */
+.menu-description {
+  font-size: 14px;
+  color: #444;
+  margin: 4px 0;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5em;
+  max-height: 3em;
+  word-break: break-word;
+}
+
+
+/* ✅ Price and Category */
+.menu-item-card p:last-child {
+  color: #72d615;
+  font-weight: bold;
+}
+
+/* ✅ Action Buttons */
+.menu-action-btn {
+  border: none;
+  padding: 6px 10px;
+  margin: 0 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.menu-edit {
+  background-color: #f0f7e8;
+  color: #3faa5f;
+}
+
+.menu-edit:hover {
+  background-color: #e0f7e9;
+}
+
+.menu-delete {
+  background-color: #fbeaea;
+  color: #e74c3c;
+}
+
+.menu-delete:hover {
+  background-color: #ffd6d6;
+}
+
+/* ✅ Responsive Fix for Small Screens */
+@media (max-width: 400px) {
+  .menu-form {
+    padding: 0 10px;
+  }
+
+  .menu-item-card {
+    width: 100%;
+  }
+
+  .menu-item-card img {
+    height: 140px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .menu-items-list {
+    gap: 10px;
+    justify-content: center;
+  }
+}
+
+/* ✅ Optional highlight if editing */
+.menu-item-card.editing {
+  border: 2px solid #72d615;
+}
