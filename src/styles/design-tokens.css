@@ -78,4 +78,44 @@
   --breakpoint-md: 600px;
   --breakpoint-lg: 768px;
   --breakpoint-xl: 1000px;
+
+  /* Reusable primitive compatibility tokens */
+  --ui-button-padding: 8px 14px;
+  --ui-button-radius: 6px;
+  --ui-button-font-size: 14px;
+  --ui-button-primary-bg: #0b66ff;
+  --ui-button-primary-text: #fff;
+  --ui-button-secondary-bg: #f3f4f6;
+  --ui-button-secondary-text: #111827;
+  --ui-button-link-bg: transparent;
+  --ui-button-link-text: #0b66ff;
+  --ui-button-link-padding: 0;
+  --ui-button-disabled-opacity: 0.6;
+
+  --ui-input-padding: 8px 10px;
+  --ui-input-radius: 6px;
+  --ui-input-border: 1px solid #d1d5db;
+  --ui-input-font-size: 14px;
+
+  --ui-card-bg: #fff;
+  --ui-card-radius: 8px;
+  --ui-card-padding: 16px;
+  --ui-card-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --ui-card-footer-gap: 12px;
+
+  --ui-modal-z-index: 1000;
+  --ui-modal-title-gap: 12px;
+  --ui-modal-footer-gap: 16px;
+  --ui-modal-close-border: none;
+  --ui-modal-close-bg: transparent;
+
+  --ui-empty-padding: 28px;
+  --ui-empty-text: #6b7280;
+  --ui-empty-title: #111827;
+  --ui-empty-icon-size: 42px;
+  --ui-empty-icon-gap: 8px;
+  --ui-empty-action-gap: 12px;
+
+  --ui-spinner-stroke: #0b66ff;
+  --ui-spinner-stroke-width: 4;
 }

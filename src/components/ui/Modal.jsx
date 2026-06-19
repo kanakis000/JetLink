@@ -9,7 +9,7 @@ const overlayStyle = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  zIndex: 1000,
+  zIndex: 'var(--ui-modal-z-index)',
 };
 
 const dialogStyle = {
@@ -46,12 +46,12 @@ export default function Modal({
     >
       <div style={dialogStyle} className={contentClassName} onClick={(e) => e.stopPropagation()}>
         {title && (
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--ui-modal-title-gap)' }}>
             <h3 style={{ margin: 0 }}>{title}</h3>
             {showCloseButton && (
               <button
                 onClick={onClose}
-                style={{ border: 'none', background: 'transparent', cursor: 'pointer' }}
+                style={{ border: 'var(--ui-modal-close-border)', background: 'var(--ui-modal-close-bg)', cursor: 'pointer' }}
                 aria-label={closeButtonLabel}
               >
                 ✕
@@ -60,7 +60,7 @@ export default function Modal({
           </div>
         )}
         <div>{children}</div>
-        {footer && <div style={{ marginTop: 16 }}>{footer}</div>}
+        {footer && <div style={{ marginTop: 'var(--ui-modal-footer-gap)' }}>{footer}</div>}
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import React from 'react';
 
 const baseStyles = {
-  padding: '8px 10px',
-  borderRadius: 6,
-  border: '1px solid #d1d5db',
-  fontSize: 14,
+  padding: 'var(--ui-input-padding)',
+  borderRadius: 'var(--ui-input-radius)',
+  border: 'var(--ui-input-border)',
+  fontSize: 'var(--ui-input-font-size)',
   width: '100%',
   boxSizing: 'border-box',
 };

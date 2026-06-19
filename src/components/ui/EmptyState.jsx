@@ -3,12 +3,12 @@ import Button from './Button';
 
 export default function EmptyState({ title = 'No items', message = '', icon = null, action = null, style = {} }) {
   return (
-    <div style={{ textAlign: 'center', padding: 28, color: '#6b7280', ...style }}>
-      <div style={{ fontSize: 42, marginBottom: 8 }}>{icon}</div>
-      <h3 style={{ margin: '8px 0', color: '#111827' }}>{title}</h3>
+    <div style={{ textAlign: 'center', padding: 'var(--ui-empty-padding)', color: 'var(--ui-empty-text)', ...style }}>
+      <div style={{ fontSize: 'var(--ui-empty-icon-size)', marginBottom: 'var(--ui-empty-icon-gap)' }}>{icon}</div>
+      <h3 style={{ margin: 'var(--ui-empty-icon-gap) 0', color: 'var(--ui-empty-title)' }}>{title}</h3>
       {message && <p style={{ marginTop: 0 }}>{message}</p>}
       {action && (
-        <div style={{ marginTop: 12 }}>
+        <div style={{ marginTop: 'var(--ui-empty-action-gap)' }}>
           <Button onClick={action.onClick} variant={action.variant || 'primary'}>{action.label}</Button>
         </div>
       )}

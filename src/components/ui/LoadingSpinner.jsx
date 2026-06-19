@@ -14,8 +14,8 @@ export default function LoadingSpinner({ size = 36, style = {} }) {
         cy="25"
         r="20"
         fill="none"
-        stroke="#0b66ff"
-        strokeWidth="4"
+        stroke="var(--ui-spinner-stroke)"
+        strokeWidth="var(--ui-spinner-stroke-width)"
         strokeLinecap="round"
         strokeDasharray="31.415, 31.415"
       >
