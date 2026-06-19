@@ -1,23 +1,115 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  padding: 16px 5%;
+  background-color: #fef7e0;
+  flex-wrap: wrap;
+  white-space: nowrap;
+}
+
+.left-nav,
+.right-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+  font-size: 24px;
+  font-weight: var(--font-weight-bold);
+  color: #3b3b3b;
+  white-space: nowrap;
+}
+
+.link {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+  padding: 8px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+}
+
+.link:hover {
+  color: #b08968;
+  text-decoration: underline;
+  border-color: #b08968;
+  box-shadow: var(--shadow-md);
+}
+
 .logout-btn {
-    background: none;
-    border: none;
-    color: inherit;
-    font: inherit;
-    cursor: pointer;
-    text-decoration: underline;
-    padding: 0;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.header-minimal {
+  width: 100%;
+  padding: 15px;
+  background-color: #f2e8d5;
+  text-align: center;
+}
+
+.header-minimal .title {
+  font-size: 28px;
+  font-weight: var(--font-weight-bold);
+  color: #3b3b3b;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
   }
-  
-  .header-minimal {
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
     width: 100%;
-    padding: 15px;
-    background-color: #f2e8d5;
-    text-align: center;
+    background: #fffaf3;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: var(--radius-lg);
   }
-  
-  .header-minimal .title {
-    font-size: 28px;
-    font-weight: bold;
-    color: #3b3b3b;
+
+  .nav-links.open {
+    display: flex;
   }
-  
+
+  .left-nav,
+  .right-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .link {
+    padding: 10px 0;
+  }
+}
