@@ -16,24 +16,22 @@ function ManagerHeader() {
     navigate("/");
   };
 
-  const homePath = user?.role === "hotel_manager"
-    ? "/hotelmanage"
-    : user?.role === "restaurant_manager"
-    ? "/restaurantmanage"
-    : "/home";
-
   return (
     <header className="header">
       <div className="left-nav">
         {user?.role === "hotel_manager" ? (
           <>
             <Link to="/hotelmanage" className="link">Manage Hotels</Link>
-            <Link to="/manager-bookings" className="link">View Bookings</Link>
+            <Link to="/manager-bookings" className="link">Hotel Bookings</Link>
             
+          </>
+        ) : user?.role === "restaurant_manager" ? (
+          <>
+            <Link to="/restaurantmanage" className="link">Manage Restaurants</Link>
           </>
         ) : (
           <>
-            <Link to={homePath} className="link">Home</Link>
+            <Link to="/home" className="link">Home</Link>
           </>
         )}
       </div>

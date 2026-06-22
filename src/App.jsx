@@ -31,12 +31,21 @@ const AppContent = () => {
     }
   }, []);
 
-  const isAccountPage = location.pathname === "/account-type";
+  const authHeaderPaths = [
+    "/account-type",
+    "/login/user",
+    "/login/manager",
+    "/login/restaurant",
+    "/register/user",
+    "/register/manager",
+    "/register/restaurant",
+  ];
+  const isAuthPage = authHeaderPaths.includes(location.pathname);
 
   return (
     <>
       {/* ✅ Header logic */}
-      {isAccountPage ? (
+      {isAuthPage ? (
         <HeaderMinimal />
       ) : user?.role === "hotel_manager" || user?.role === "restaurant_manager" ? (
         <ManagerHeader />
@@ -72,7 +81,7 @@ const AppContent = () => {
         <Route path="/Rethymno" element={<Rethymno />} />
       </Routes>
 
-      {!isAccountPage && <Footer />}
+      {!isAuthPage && <Footer />}
     </>
   );
 };

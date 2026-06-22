@@ -6,6 +6,7 @@ function UserHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
+  const isRegularUser = user?.role === "user";
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -21,14 +22,20 @@ function UserHeader() {
       </button>
 
       <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
-        <Link to="/home" className="link">Home</Link>
-        
-        
-        
-        {user?.role === "user" && (
-          <Link to="/my-bookings" className="link">My Bookings</Link>
+        {isRegularUser ? (
+          <>
+            <Link to="/home" className="link">Home</Link>
+            <Link to="/my-bookings" className="link">My Bookings</Link>
+            <button className="link logout-btn" onClick={handleLogout}>Logout</button>
+          </>
+        ) : (
+          <>
+            <Link to="/Heraklion" className="link">Heraklion</Link>
+            <Link to="/Chania" className="link">Chania</Link>
+            <Link to="/Rethymno" className="link">Rethymno</Link>
+            <Link to="/account-type" className="link">Login / Register</Link>
+          </>
         )}
-        <button className="link logout-btn" onClick={handleLogout}>Logout</button>
       </nav>
     </header>
   );
