@@ -26,17 +26,18 @@ const Rethymno = () => {
                 setTotalPages(response.data.totalPages);
             }
         } catch (error) {
-            console.error("❌ Error fetching items:", error);
+            console.error("Error fetching items:", error);
         }
     };
 
     return (
-        <div className="hotels-container">
+        <div className="hotels-container region-page">
             <h2 className="hotels-title">Explore Rethymno</h2>
+            <p className="region-subtitle">Find hotels, restaurants, and bars across Rethymno.</p>
 
-            <div style={{ marginBottom: "20px" }}>
-                <button onClick={() => { setCategory("hotels"); setPage(1); }}>🏨 Hotels</button>
-                <button onClick={() => { setCategory("restaurants-bars"); setPage(1); }} style={{ marginLeft: "10px" }}>🍴 Restaurants & Bars</button>
+            <div className="switch-category">
+                <button className={category === "hotels" ? "active" : ""} onClick={() => { setCategory("hotels"); setPage(1); }}>Hotels</button>
+                <button className={category === "restaurants-bars" ? "active" : ""} onClick={() => { setCategory("restaurants-bars"); setPage(1); }}>Restaurants & Bars</button>
             </div>
 
             {items && items.length === 0 ? (
@@ -63,20 +64,17 @@ const Rethymno = () => {
                             )}
                             <h3 className="hotel-name">{item.name}</h3>
                             <p className="hotel-type">
-                                ⭐ {category === "hotels" ? item.type : item.category}
+                                {category === "hotels" ? item.type : item.category}
                             </p>
-                            {category === "hotels" && (
-                                <p className="truncate-description">{item.description}</p>
-                            )}
                         </Link>
                     ))}
                 </div>
             )}
 
             <div className="pagination">
-                <button disabled={page === 1} onClick={() => setPage(page - 1)}>⬅ Previous</button>
+                <button disabled={page === 1} onClick={() => setPage(page - 1)}>Previous</button>
                 <span> Page {page} of {totalPages} </span>
-                <button disabled={page === totalPages} onClick={() => setPage(page + 1)}>Next ➡</button>
+                <button disabled={page === totalPages} onClick={() => setPage(page + 1)}>Next</button>
             </div>
         </div>
     );

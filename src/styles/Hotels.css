@@ -1,282 +1,248 @@
-/* ✅ General Container */
-.hotels-container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
-    text-align: center;
+.region-page.hotels-container {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: var(--space-12) 0 var(--space-16);
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.region-page .hotels-title {
+  margin: 0;
+  color: var(--color-primary-dark);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-bold);
+}
+
+.region-page .hotels-title::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 3px;
+  margin: var(--space-4) auto 0;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+}
+
+.region-page .region-subtitle {
+  max-width: 620px;
+  margin: var(--space-5) auto var(--space-8);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+}
+
+.region-page .switch-category {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.region-page .switch-category button {
+  min-height: 44px;
+  padding: 0 var(--space-5);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.region-page .switch-category button:hover {
+  color: var(--color-primary-dark);
+  background: var(--color-primary-soft);
+}
+
+.region-page .switch-category button.active {
+  color: var(--color-surface);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 18px rgba(47, 93, 80, 0.18);
+}
+
+.region-page .switch-category button:focus-visible,
+.region-page .pagination button:focus-visible,
+.region-page .hotel-card:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.region-page .hotel-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-8);
+  align-items: stretch;
+  text-align: left;
+}
+
+.region-page .hotel-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  padding-bottom: var(--space-5);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.region-page .hotel-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.region-page .hotel-image {
+  width: 100%;
+  height: 245px;
+  object-fit: cover;
+  display: block;
+  background: var(--color-primary-soft);
+}
+
+.region-page .hotel-name {
+  margin: var(--space-6) var(--space-6) var(--space-3);
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-bold);
+}
+
+.region-page .hotel-type {
+  align-self: flex-start;
+  margin: 0 var(--space-6);
+  padding: 8px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-soft);
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.region-page .truncate-description {
+  margin: 0 var(--space-5) var(--space-5);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.region-page .no-hotels {
+  width: min(620px, 100%);
+  margin: var(--space-8) auto;
+  padding: var(--space-8);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.region-page .pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-12);
+  margin-bottom: var(--space-8);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+}
+
+.region-page .pagination button {
+  min-height: 46px;
+  padding: 0 var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-primary-dark);
+  cursor: pointer;
+  font: inherit;
+  font-weight: var(--font-weight-bold);
+  box-shadow: var(--shadow-sm);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.region-page .pagination button:not(:disabled):hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-surface);
+  transform: translateY(-1px);
+}
+
+.region-page .pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+@media (max-width: 768px) {
+  .region-page.hotels-container {
+    width: min(100% - 24px, 1180px);
+    padding: var(--space-10) 0 var(--space-12);
   }
-  
-  .hotels-title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 30px;
-  }
-  
-  /* ✅ Add Button */
-  .add-button-wrapper {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .role-btn {
-    background: #72d615;
-    color: black;
-    font-weight: bold;
-    padding: 12px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .role-btn:hover {
-    background: #3faa5f;
-    color: white;
-  }
-  
-  /* ✅ Cards Grid */
-  .card-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-  }
-  
-  .card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s;
-  }
-  
-  .card:hover {
-    transform: scale(1.03);
-  }
-  
-  .card img {
+
+  .region-page .switch-category {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 12px;
+    border-radius: var(--radius-xl);
   }
-  
-  .card-name {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 10px 0 5px;
+
+  .region-page .switch-category button {
+    flex: 1 1 180px;
   }
-  
-  .card-type {
-    font-size: 16px;
-    color: #555;
+
+  .region-page .hotel-list {
+    grid-template-columns: 1fr;
   }
-  
-  .truncate-description {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: #777;
-    font-size: 14px;
+
+  .region-page .hotel-image {
+    height: 240px;
   }
-  
-  /* ✅ Icon Buttons */
-  .icon-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 10px;
+
+  .region-page .pagination {
+    gap: var(--space-2);
   }
-  
-  .icon-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    font-size: 20px;
-    border-radius: 50%;
-    transition: background 0.3s;
+}
+
+@media (max-width: 420px) {
+  .region-page .hotel-image {
+    height: 220px;
   }
-  
-  .icon-button.edit {
-    color: #3faa5f;
-  }
-  
-  .icon-button.edit:hover {
-    background: #e0f7e9;
-  }
-  
-  .icon-button.delete {
-    color: #e74c3c;
-  }
-  
-  .icon-button.delete:hover {
-    background: #fbeaea;
-  }
-  
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(6px);
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1000;
-  }
-  
-  /* ✅ Modal Box */
-  .modal {
-    background: white;
-    padding: 40px 30px;
-    width: 90%;
-    max-width: 500px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 0.3s ease;
-  }
-  
-  .modal-title {
-    font-size: 26px;
-    margin-bottom: 20px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
+
+  .region-page .pagination span {
     width: 100%;
+    order: -1;
   }
-  
-  @keyframes fadeIn {
-    from { transform: translateY(-20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-  
-  /* ✅ Modal Title */
-  .modal h2 {
-    font-size: 26px;
-    margin-bottom: 25px;
-    color: #333;
-  }
-  
-  .modal-content {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  
-  /* ✅ Form Layout */
-  .restaurant-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 20px;
-  }
-  
-  .restaurant-form .form-group {
-    width: 100%;
-  }
-  
-  .restaurant-form input,
-  .restaurant-form select,
-  .restaurant-form textarea {
-    width: 100%;
-    padding: 12px;
-    font-size: 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-  }
-  
-  .restaurant-form textarea {
-    resize: vertical;
-    min-height: 100px;
-  }
-  
-  /* ✅ Type Selector */
-  .types-selection {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
-  
-  .type-btn {
-    background: #eee;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .type-btn:hover {
-    background: #d4ffd4;
-  }
-  
-  .type-btn.selected {
-    background: #72d615;
-    color: white;
-  }
-  
-  /* ✅ Action Buttons */
-  .form-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-  }
-  
-  @media (max-width: 500px) {
-    .modal {
-      padding: 30px 20px;
-    }
-  
-    .modal-title {
-      font-size: 22px;
-    }
-  
-    .restaurant-form input,
-    .restaurant-form select,
-    .restaurant-form textarea {
-      font-size: 14px;
-    }
-  }
-  
-  .save-btn {
-    background: #72d615;
-    color: black;
-    font-weight: bold;
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .save-btn:hover {
-    background: #3faa5f;
-    color: white;
-  }
-  
-  .cancel-btn {
-    background: none;
-    color: #e74c3c;
-    border: 2px solid #e74c3c;
-    padding: 12px;
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  
-  .cancel-btn:hover {
-    background: #fbeaea;
-  }
+}
+

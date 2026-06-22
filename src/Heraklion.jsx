@@ -5,7 +5,7 @@ import "./styles/Hotels.css";
 import { Link } from "react-router-dom";
 
 const Heraklion = () => {
-    const [category, setCategory] = useState("hotels"); // 🏨 or 🍽️
+    const [category, setCategory] = useState("hotels");
     const [items, setItems] = useState([]);
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
@@ -26,15 +26,15 @@ const Heraklion = () => {
                 setTotalPages(response.data.totalPages);
             }
         } catch (error) {
-            console.error("❌ Error fetching data:", error);
+            console.error("Error fetching data:", error);
         }
     };
 
     return (
-        <div className="hotels-container">
+        <div className="hotels-container region-page">
             <h2 className="hotels-title">Explore Heraklion</h2>
+            <p className="region-subtitle">Discover hotels, restaurants, and bars across Heraklion.</p>
 
-            {/* 🔥 Switch between Hotels and Restaurants */}
             <div className="switch-category">
                 <button
                     onClick={() => {
@@ -43,7 +43,7 @@ const Heraklion = () => {
                     }}
                     className={category === "hotels" ? "active" : ""}
                 >
-                    🏨 Hotels
+                    Hotels
                 </button>
                 <button
                     onClick={() => {
@@ -52,51 +52,45 @@ const Heraklion = () => {
                     }}
                     className={category === "restaurants-bars" ? "active" : ""}
                 >
-                    🍽️ Restaurants & Bars
+                    Restaurants & Bars
                 </button>
             </div>
 
-            {/* ✅ List hotels or restaurants */}
             {items && items.length === 0 ? (
-    <p className="no-hotels">No results found.</p>
-) : (
-    <div className="hotel-list">
-        {items && items.map((item) => (
-            <Link
-                key={item.id}
-                to={
-                    category === "hotels"
-                        ? `/hotels/${item.id}`
-                        : `/restaurants-bars/${item.id}`
-                }
-                className="hotel-card"
-                style={{ textDecoration: "none", color: "inherit" }}
-            >
-                {item.image && (
-                    <img
-                        src={`http://localhost:5000/uploads/${item.image}`}
-                        alt={item.name}
-                        className="hotel-image"
-                    />
-                )}
-                <h3 className="hotel-name">{item.name}</h3>
-                <p className="hotel-type">
-                    ⭐ {category === "hotels" ? item.type : item.category}
-                </p>
-                {category === "hotels" && (
-                    <p className="truncate-description">{item.description}</p>
-                )}
-            </Link>
-        ))}
-    </div>
-)}
+                <p className="no-hotels">No results found.</p>
+            ) : (
+                <div className="hotel-list">
+                    {items && items.map((item) => (
+                        <Link
+                            key={item.id}
+                            to={
+                                category === "hotels"
+                                    ? `/hotels/${item.id}`
+                                    : `/restaurants-bars/${item.id}`
+                            }
+                            className="hotel-card"
+                            style={{ textDecoration: "none", color: "inherit" }}
+                        >
+                            {item.image && (
+                                <img
+                                    src={`http://localhost:5000/uploads/${item.image}`}
+                                    alt={item.name}
+                                    className="hotel-image"
+                                />
+                            )}
+                            <h3 className="hotel-name">{item.name}</h3>
+                            <p className="hotel-type">
+                                {category === "hotels" ? item.type : item.category}
+                            </p>
+                        </Link>
+                    ))}
+                </div>
+            )}
 
-
-            {/* ✅ Pagination */}
             <div className="pagination">
-                <button disabled={page === 1} onClick={() => setPage(page - 1)}>⬅ Previous</button>
+                <button disabled={page === 1} onClick={() => setPage(page - 1)}>Previous</button>
                 <span> Page {page} of {totalPages} </span>
-                <button disabled={page === totalPages} onClick={() => setPage(page + 1)}>Next ➡</button>
+                <button disabled={page === totalPages} onClick={() => setPage(page + 1)}>Next</button>
             </div>
         </div>
     );
