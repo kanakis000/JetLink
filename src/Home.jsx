@@ -13,9 +13,23 @@ const Home = () => {
     return (
         <>
             <TopImage />
-            <RollerCoaster />
             <main className="body">
-                <section className="card-section">
+                <section className="home-section featured-section">
+                    <div className="section-heading">
+                        <span className="section-kicker">Featured</span>
+                        <h2>Places to start your trip</h2>
+                        <p>Explore a rotating selection of stays, restaurants, and bars across Crete.</p>
+                    </div>
+                    <RollerCoaster />
+                </section>
+
+                <section className="home-section destinations-section">
+                    <div className="section-heading">
+                        <span className="section-kicker">Destinations</span>
+                        <h2>Choose your Crete escape</h2>
+                        <p>Browse JetLink by region and find the right place for your next day or stay.</p>
+                    </div>
+                    <div className="card-section">
                     <Card
                         destination="/Heraklion"
                         title="Heraklion"
@@ -34,6 +48,7 @@ const Home = () => {
                         text="Experience history and beaches."
                         image={rethymnoImg}
                     />
+                    </div>
                 </section>
             </main>
         </>

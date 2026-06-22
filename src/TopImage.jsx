@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import TopImageSrc from "./assets/TopImage.png";
 import { getAllHotels } from "./services/hotelService";
@@ -41,22 +41,24 @@ function TopImage() {
       <img src={TopImageSrc} alt="Beautiful Scenery" className="top-image" />
 
       <div className="jetlink-text">JetLink</div>
+      <p className="hero-subtitle">Discover. Book. Enjoy Crete.</p>
 
       
 
       <div className="search-bar-container">
         <input
           type="text"
-          placeholder="Search here..."
+          placeholder="Search hotels, restaurants, and bars"
           className="search-bar"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSearch()}
         />
-        <button className="search-button" onClick={handleSearch}>🔍</button>
+        <button className="search-button" onClick={handleSearch}>Search</button>
       </div>
     </div>
   );
 }
 
 export default TopImage;
+

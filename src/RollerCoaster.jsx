@@ -45,6 +45,7 @@ const RollerCoaster = () => {
         <div key={`hotel-${fadeKey}`} className="roller-card active">
           <img src={`http://localhost:5000/uploads/${currentHotel.image}`} alt={currentHotel.name} />
           <div className="roller-info">
+            <span className="roller-label">Hotel</span>
             <h3>{currentHotel.name}</h3>
             <p>{currentHotel.region}</p>
           </div>
@@ -55,6 +56,7 @@ const RollerCoaster = () => {
         <div key={`restaurant-${fadeKey}`} className="roller-card active">
           <img src={`http://localhost:5000/uploads/${currentRestaurant.image}`} alt={currentRestaurant.name} />
           <div className="roller-info">
+            <span className="roller-label">Restaurant & Bar</span>
             <h3>{currentRestaurant.name}</h3>
             <p>{currentRestaurant.region}</p>
           </div>
