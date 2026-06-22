@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { getUserBookings, cancelBookingById } from "./services/bookingService";
 import "./styles/UserBookings.css";
 import LoadingSpinner from "./components/ui/LoadingSpinner";
@@ -21,8 +21,8 @@ const UserBookings = ({ userId }) => {
         setBookings(res.data);
         setFilteredBookings(res.data);
       } catch (err) {
-        console.error("❌ Failed to fetch bookings:", err);
-        setMessage("❌ Could not load bookings.");
+        console.error("β Failed to fetch bookings:", err);
+        setMessage("β Could not load bookings.");
       } finally {
         setLoading(false);
       }
@@ -44,15 +44,15 @@ const UserBookings = ({ userId }) => {
 
     try {
       await cancelBookingById(bookingId);
-      setMessage("✅ Booking cancelled.");
+      setMessage("β… Booking cancelled.");
       setBookings((prev) =>
         prev.map((b) =>
           b.id === bookingId ? { ...b, status: "cancelled" } : b
         )
       );
     } catch (err) {
-      console.error("❌ Failed to cancel booking:", err);
-      setMessage("❌ Cancel failed.");
+      console.error("β Failed to cancel booking:", err);
+      setMessage("β Cancel failed.");
     }
   };
 
@@ -83,7 +83,7 @@ const UserBookings = ({ userId }) => {
       </div>
 
       {message && (
-        <p className={`status-message ${message.includes("❌") ? "error" : "success"}`}>
+        <p className={`status-message ${message.includes("β") ? "error" : "success"}`}>
           {message}
         </p>
       )}
@@ -106,26 +106,48 @@ const UserBookings = ({ userId }) => {
                 booking.status === "cancelled" ? "cancelled" : ""
               }`}
             >
-              <Card style={{ padding: 16, margin: 0 }}>
-                <p>
-                  <strong>Hotel:</strong> {booking.hotel_name} <br />
-                  <strong>Region:</strong> {booking.region} <br />
-                  <strong>Room Type:</strong> {booking.room_type} <br />
-                  <strong>Check-in:</strong> {booking.check_in?.split("T")[0]} <br />
-                  <strong>Check-out:</strong> {booking.check_out?.split("T")[0]} <br />
-                  <strong>Guests:</strong> {booking.guests} <br />
-                  <strong>Total Price:</strong> 
-                    €{!isNaN(Number(booking.total_price)) 
-                    ? Number(booking.total_price).toFixed(2) 
-                    : "0.00"}<br />
-                  <strong>Status:</strong>{" "}
+              <Card className="booking-card-inner" style={{ padding: 0, margin: 0 }}>
+                <div className="booking-card-header">
+                  <div>
+                    <h4 className="booking-hotel-name">{booking.hotel_name}</h4>
+                    <p className="booking-region">{booking.region}</p>
+                  </div>
                   <span className={`status ${booking.status}`}>
                     {booking.status}
                   </span>
-                </p>
+                </div>
+
+                <div className="booking-detail-grid">
+                  <div className="booking-detail-item">
+                    <span>Room Type</span>
+                    <strong>{booking.room_type}</strong>
+                  </div>
+                  <div className="booking-detail-item">
+                    <span>Check-in</span>
+                    <strong>{booking.check_in?.split("T")[0]}</strong>
+                  </div>
+                  <div className="booking-detail-item">
+                    <span>Check-out</span>
+                    <strong>{booking.check_out?.split("T")[0]}</strong>
+                  </div>
+                  <div className="booking-detail-item">
+                    <span>Guests</span>
+                    <strong>{booking.guests}</strong>
+                  </div>
+                  <div className="booking-detail-item booking-total">
+                    <span>Total Price</span>
+                    <strong>
+                      &euro;{!isNaN(Number(booking.total_price))
+                        ? Number(booking.total_price).toFixed(2)
+                        : "0.00"}
+                    </strong>
+                  </div>
+                </div>
 
                 {booking.status !== "cancelled" && (
-                  <Button variant="secondary" onClick={() => cancelBooking(booking.id)}>❌ Cancel</Button>
+                  <div className="booking-card-actions">
+                    <Button variant="secondary" onClick={() => cancelBooking(booking.id)}>Cancel</Button>
+                  </div>
                 )}
               </Card>
             </li>
@@ -137,3 +159,4 @@ const UserBookings = ({ userId }) => {
 };
 
 export default UserBookings;
+
